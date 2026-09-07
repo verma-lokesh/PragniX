@@ -1,0 +1,82 @@
+sources:
+
+  # ==========================================================
+  # PORT WEBSITE
+  # ==========================================================
+
+  - name: port_example
+    url: "https://example.com/port/vessel-arrivals"
+
+    browser: true
+
+    wait_for: "table"
+
+    extraction:
+
+      type: table
+
+      selector: "table.vessel-arrivals"
+
+
+  # ==========================================================
+  # FREIGHT WEBSITE
+  # ==========================================================
+
+  - name: freight_example
+    url: "https://example.com/freight/rates"
+
+    browser: false
+
+    extraction:
+
+      type: items
+
+      selector: ".freight-row"
+
+      fields:
+
+        - name: origin
+          selector: ".origin"
+
+        - name: destination
+          selector: ".destination"
+
+        - name: vessel_type
+          selector: ".vessel-type"
+
+        - name: rate
+          selector: ".rate"
+
+        - name: currency
+          selector: ".currency"
+
+
+  # ==========================================================
+  # MARKET NEWS
+  # ==========================================================
+
+  - name: market_news
+    url: "https://example.com/market/news"
+
+    browser: false
+
+    extraction:
+
+      type: items
+
+      selector: ".news-card"
+
+      fields:
+
+        - name: title
+          selector: ".title"
+
+        - name: published_at
+          selector: ".date"
+
+        - name: summary
+          selector: ".summary"
+
+        - name: url
+          selector: "a"
+          attribute: href
