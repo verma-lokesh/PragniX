@@ -1,4 +1,5 @@
 from pydantic import BaseModel
 
 
-# Schemas MUST match contracts/api.md exactly.
+class PortBase(BaseModel):
+    model_config = {"from_attributes": True}

@@ -1,30 +1,35 @@
 from functools import lru_cache
-
-from pydantic import Field
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Settings(BaseSettings):
-    app_name: str = "Navora"
-    app_env: str = "development"
-    debug: bool = True
+    model_config = SettingsConfigDict(env_file=".env", extra="ignore")
 
-    database_url: str = Field(
-        default="mysql+pymysql://Navora:Navora@2026%23SIH@127.0.0.1:3306/Navora",
-        alias="DATABASE_URL",
-    )
+    APP_NAME: str = "Navora"
+    APP_ENV: str = "development"
+    DEBUG: bool = True
 
-    model_config = SettingsConfigDict(
-        env_file=".env",
-        env_file_encoding="utf-8",
-        case_sensitive=False,
-        extra="ignore",
-    )
+    DATABASE_URL: str = "mysql+pymysql://root:root@localhost:3306/navora"
+
+    MYSQL_HOST: str = "localhost"
+    MYSQL_PORT: int = 3306
+    MYSQL_DATABASE: str = "navora"
+    MYSQL_USER: str = "root"
+    MYSQL_PASSWORD: str = "root"
+
+    LLM_PROVIDER: str = "none"
+    LLM_API_KEY: str | None = None
+    LLM_MODEL: str = "claude-sonnet-4-6"
+
+    LANGCHAIN_TRACING_V2: bool = False
+    LANGCHAIN_API_KEY: str | None = None
+    LANGCHAIN_PROJECT: str = "navora"
+
+    OTEL_ENDPOINT: str | None = None
+
+    MODEL_ARTIFACT_PATH: str = "backend/ml/artifacts"
 
 
 @lru_cache
 def get_settings() -> Settings:
     return Settings()
-
-
-settings = get_settings()

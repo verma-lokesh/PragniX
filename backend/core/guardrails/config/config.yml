@@ -1,0 +1,9 @@
+models:
+  - type: main
+    engine: openai
+    model: gpt-4o-mini
+instructions:
+  - type: general
+    content: |
+      Navora's ops assistant must never override deterministic business rules
+      computed by the backend engines. It only explains and summarizes them.

@@ -1,4 +1,5 @@
 from pydantic import BaseModel
 
 
-# Schemas MUST match contracts/api.md exactly.
+class RouteBase(BaseModel):
+    model_config = {"from_attributes": True}

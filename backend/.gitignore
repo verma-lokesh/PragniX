@@ -1,0 +1,83 @@
+# Environment
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# uv
+.uv/
+uv.lock
+
+# Databases
+*.db
+*.sqlite
+*.sqlite3
+navora_test.db
+test_navora.db
+test_api_navora.db
+
+# Alembic (keep migration scripts, ignore local sqlite artifacts only)
+# alembic/versions/*.py should be committed — do not ignore
+
+# ML artifacts (large/binary, regenerate via training scripts)
+ml/artifacts/**/*.joblib
+ml/artifacts/**/*.pkl
+ml/artifacts/**/*.h5
+ml/artifacts/**/*.onnx
+
+# Data (raw/processed may contain large or sensitive datasets)
+data/processed/*
+data/validation/*
+!data/processed/.gitkeep
+!data/validation/.gitkeep
+
+# Logs
+*.log
+logs/
+
+# Test / coverage
+.pytest_cache/
+.coverage
+htmlcov/
+coverage.xml
+.tox/
+
+# Type checkers / linters
+.mypy_cache/
+.ruff_cache/
+.dmypy.json
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# LangChain / LangSmith tracing
+.langchain/
+langsmith.log
+
+# Secrets (extra safety net beyond .env)
+*.pem
+*.key
+secrets.yml

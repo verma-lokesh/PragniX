@@ -1,4 +1,11 @@
 from pydantic import BaseModel
 
 
-# Schemas MUST match contracts/api.md exactly.
+class ErrorDetail(BaseModel):
+    code: str
+    message: str
+    request_id: str | None = None
+
+
+class ErrorResponse(BaseModel):
+    error: ErrorDetail
