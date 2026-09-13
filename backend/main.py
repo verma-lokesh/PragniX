@@ -13,7 +13,7 @@ settings = get_settings()
 configure_logging("DEBUG" if settings.DEBUG else "INFO")
 
 app = FastAPI(
-    title="Navora API",
+    title="AnchorIQ API",
     description="Intelligent maritime freight decision-support platform.",
     version="0.1.0",
 )
