@@ -1,16 +1,19 @@
-import os
 from tavily import TavilyClient
+
+from config.settings import get_settings
 
 
 class TavilySearchProvider:
 
     def __init__(self):
-        api_key = os.getenv("TAVILY_API_KEY")
+        settings = get_settings()
 
-        if not api_key:
+        if not settings.TAVILY_API_KEY:
             raise ValueError("TAVILY_API_KEY is not configured")
 
-        self.client = TavilyClient(api_key=api_key)
+        self.client = TavilyClient(
+            api_key=settings.TAVILY_API_KEY
+        )
 
     def search(self, query: str, max_results: int = 5):
 

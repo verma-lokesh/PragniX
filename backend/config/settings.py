@@ -20,6 +20,7 @@ class Settings(BaseSettings):
     LLM_PROVIDER: str = "none"
     LLM_API_KEY: str | None = None
     LLM_MODEL: str = "claude-sonnet-4-6"
+    TAVILY_API_KEY: str | None = None
 
     LANGCHAIN_TRACING_V2: bool = False
     LANGCHAIN_API_KEY: str | None = None
